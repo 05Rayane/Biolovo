@@ -3,21 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biolovo</title>
+    <title>تسجيل الدخول - Biolovo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>مرحبا في Biolovo</h1>
+        <h1>مرحبا بك في Biolovo</h1>
         <nav>
-            <a href="user.html">تسجيل الدخول كمستخدم</a>
+            <a href="index.html">الصفحة الرئيسية</a>
             <a href="admin.html">تسجيل الدخول كـ مطور</a>
         </nav>
     </header>
-    
+
     <section>
-        <h2>تجربة التطبيق</h2>
-        <p>هذا هو التطبيق الأساسي لخدمة التوصيل Biolovo.</p>
+        <h2>تسجيل الدخول</h2>
+        <form id="loginForm">
+            <div>
+                <label for="username">اسم المستخدم:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="password">كلمة المرور:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div>
+                <button type="submit">تسجيل الدخول</button>
+            </div>
+        </form>
+        <p id="errorMessage" style="color: red; display: none;">اسم المستخدم أو كلمة المرور غير صحيحة!</p>
     </section>
+
+    <footer>
+        <p>&copy; 2025 Biolovo. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        // إضافة تحقق بسيط
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // الحصول على القيم المدخلة
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // تحديد القيم الصحيحة (اسم المستخدم وكلمة المرور)
+            const correctUsername = 'user123';  // استبدله بالاسم الصحيح
+            const correctPassword = 'password123';  // استبدله بكلمة المرور الصحيحة
+
+            // التحقق من صحة اسم المستخدم وكلمة المرور
+            if (username === correctUsername && password === correctPassword) {
+                window.location.href = 'dashboard.html';  // الانتقال إلى صفحة أخرى بعد النجاح
+            } else {
+                document.getElementById('errorMessage').style.display = 'block';  // إظهار رسالة الخطأ
+            }
+        });
+    </script>
 </body>
 </html>
