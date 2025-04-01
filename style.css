@@ -1,0 +1,71 @@
+/* التصميم العام */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  background-color: #f9f9f9;
+}
+
+/* الهيدر */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+/* التنقل بين الصفحات */
+nav {
+  text-align: center;
+  margin-top: 20px;
+}
+
+nav a {
+  color: #333;
+  font-size: 18px;
+  margin: 10px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #007BFF;
+}
+
+/* أقسام الصفحة */
+section {
+  padding: 20px;
+  margin: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+section h2 {
+  color: #333;
+}
+
+/* التصميم للأزرار والعناصر التفاعلية */
+button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+input, select {
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
