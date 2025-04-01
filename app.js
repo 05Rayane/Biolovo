@@ -27,9 +27,11 @@ function App() {
     if (trimmedUsername === correctUsernameUser && trimmedPassword === correctPasswordUser) {
       // التوجيه إلى صفحة المستخدم العادي
       history.push("/user-dashboard");
+      console.log("تم التوجيه إلى صفحة المستخدم!");
     } else if (trimmedUsername === correctUsernameAdmin && trimmedPassword === correctPasswordAdmin) {
       // التوجيه إلى صفحة المطور
       history.push("/admin-dashboard");
+      console.log("تم التوجيه إلى صفحة المطور!");
     } else {
       // إظهار رسالة الخطأ في حال كانت البيانات غير صحيحة
       setError("اسم المستخدم أو كلمة المرور غير صحيحة. حاول مرة أخرى.");
