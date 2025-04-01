@@ -1,0 +1,21 @@
+{
+  "name": "Biolovo",
+  "short_name": "Biolovo",
+  "description": "تطبيق توصيل متطور",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#FF6600",
+  "icons": [
+    {
+      "src": "/icons/biolovo-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/biolovo-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
