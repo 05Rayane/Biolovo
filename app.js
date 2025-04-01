@@ -8,17 +8,28 @@ function App() {
 
   const history = useHistory();
 
-  // القيم الصحيحة لاسم المستخدم وكلمة المرور
-  const correctUsername = "user123";
-  const correctPassword = "password123";
+  // القيم الصحيحة لاسم المستخدم وكلمة المرور للمستخدم العادي والمطور
+  const correctUsernameUser = "user123";  // اسم المستخدم العادي
+  const correctPasswordUser = "password123";  // كلمة مرور المستخدم العادي
+  
+  const correctUsernameAdmin = "admin123";  // اسم المستخدم للمطور
+  const correctPasswordAdmin = "adminpassword123";  // كلمة مرور المطور
 
   // دالة التحقق عند إرسال النموذج
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (username.trim() === correctUsername && password.trim() === correctPassword) {
-      // التوجيه إلى صفحة الداشبورد في حال كانت البيانات صحيحة
-      history.push("/dashboard");
+    // إزالة المسافات الزائدة والتأكد من تطابق البيانات المدخلة
+    const trimmedUsername = username.trim();
+    const trimmedPassword = password.trim();
+
+    // التحقق من البيانات المدخلة
+    if (trimmedUsername === correctUsernameUser && trimmedPassword === correctPasswordUser) {
+      // التوجيه إلى صفحة المستخدم العادي
+      history.push("/user-dashboard");
+    } else if (trimmedUsername === correctUsernameAdmin && trimmedPassword === correctPasswordAdmin) {
+      // التوجيه إلى صفحة المطور
+      history.push("/admin-dashboard");
     } else {
       // إظهار رسالة الخطأ في حال كانت البيانات غير صحيحة
       setError("اسم المستخدم أو كلمة المرور غير صحيحة. حاول مرة أخرى.");
