@@ -1,27 +1,59 @@
-// وظيفة تسجيل الدخول كمستخدم
-function loginUser() {
-  let username = document.getElementById("username").value;
-  let password = document.getElementById("password").value;
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
-  // تحقق من البيانات
-  if (username === "user" && password === "password123") {
-    alert("تم تسجيل الدخول كمستخدم بنجاح!");
-    window.location.href = "user.html"; // تحويل للمستخدم
-  } else {
-    alert("بيانات غير صحيحة. حاول مرة أخرى.");
-  }
+function App() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const history = useHistory();
+
+  // القيم الصحيحة لاسم المستخدم وكلمة المرور
+  const correctUsername = "user123";
+  const correctPassword = "password123";
+
+  // دالة التحقق عند إرسال النموذج
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (username.trim() === correctUsername && password.trim() === correctPassword) {
+      // التوجيه إلى صفحة الداشبورد في حال كانت البيانات صحيحة
+      history.push("/dashboard");
+    } else {
+      // إظهار رسالة الخطأ في حال كانت البيانات غير صحيحة
+      setError("اسم المستخدم أو كلمة المرور غير صحيحة. حاول مرة أخرى.");
+    }
+  };
+
+  return (
+    <div className="App">
+      <h1>تسجيل الدخول إلى Biolovo</h1>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="username">اسم المستخدم:</label>
+          <input
+            type="text"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="password">كلمة المرور:</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit">تسجيل الدخول</button>
+      </form>
+      {error && <p style={{ color: "red" }}>{error}</p>}
+    </div>
+  );
 }
 
-// وظيفة تسجيل الدخول كمطور
-function loginAdmin() {
-  let adminUsername = document.getElementById("adminUsername").value;
-  let adminPassword = document.getElementById("adminPassword").value;
-
-  // تحقق من بيانات المدير
-  if (adminUsername === "admin" && adminPassword === "admin123") {
-    alert("تم تسجيل الدخول كـ مطور بنجاح!");
-    window.location.href = "admin.html"; // تحويل للمطور
-  } else {
-    alert("بيانات غير صحيحة. حاول مرة أخرى.");
-  }
-}
+export default App;
